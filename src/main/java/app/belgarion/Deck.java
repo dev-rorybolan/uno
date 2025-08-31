@@ -1,27 +1,34 @@
 package app.belgarion;
+import app.belgarion.cardtypes.Cards;
+
 import java.util.ArrayList;
 import java.util.Random;
-import app.belgarion.cardtypes.*;
+
 
 public class Deck {
-    public ArrayList<Card> Deal() {
-        ArrayList<Card> cards = new ArrayList<Card>();
+    public ArrayList<Card> DealOneHand() {
+        ArrayList<Card> cards = new ArrayList<>();
         Random random = new Random();
+        ArrayList<Integer> card_indices = new ArrayList<>();
 
-        for (int i = 0; i < 7; i++) {
-            Colour col = randomEnum(Colour.class);
-            Symbol sym = randomEnum(Symbol.class);
-            if (col == Colour.SPECIAL) {
-                sym = random.nextBoolean() ? Symbol.WILD : Symbol.PLUS_4;
+        while (card_indices.size() < 7) {
+            int num = random.nextInt(0, 108);
+            if (!card_indices.contains(num)) {
+                card_indices.add(num);
             }
-            cards.add(new Card(col, sym));
+        }
+        for (int num : card_indices) {
+            cards.add(Cards.allCards[num]);
+        }
+        return cards.size() == 7? cards : new ArrayList<>();
+    }
+    public ArrayList<ArrayList<Card>> Deal(int playerCount) {
+        ArrayList<ArrayList<Card>> cards = new ArrayList<>();
+        for (int i = 0; i < playerCount; i++) {
+            cards.add(DealOneHand());
         }
         return cards;
     }
-    public static <T extends Enum<?>> T randomEnum(Class<T> clas){
-        Random random = new Random();
-        int x = random.nextInt(clas.getEnumConstants().length);
-        return clas.getEnumConstants()[x];
-    }
+
 
 }

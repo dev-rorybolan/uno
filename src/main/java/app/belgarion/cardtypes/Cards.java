@@ -1,5 +1,6 @@
-package app.belgarion;
-import app.belgarion.cardtypes.*;
+package app.belgarion.cardtypes;
+import app.belgarion.Card;
+
 public class Cards {
     public static Card[] allCards = {
             // RED cards
