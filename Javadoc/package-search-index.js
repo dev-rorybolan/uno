@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"app.belgarion"},{"l":"app.belgarion.AI"},{"l":"app.belgarion.cardtypes"}];updateSearchResults();

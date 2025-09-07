@@ -6,9 +6,10 @@ import java.util.Random;
 
 
 public class Deck {
+    Random random = new Random();
     public ArrayList<Card> DealOneHand() {
         ArrayList<Card> cards = new ArrayList<>();
-        Random random = new Random();
+
         ArrayList<Integer> card_indices = new ArrayList<>();
 
         while (card_indices.size() < 7) {
@@ -28,6 +29,9 @@ public class Deck {
             cards.add(DealOneHand());
         }
         return cards;
+    }
+    public Card draw() {
+        return Cards.allCards[random.nextInt(0, 108)];
     }
 
 
