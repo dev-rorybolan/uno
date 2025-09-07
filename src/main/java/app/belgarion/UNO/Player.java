@@ -1,4 +1,6 @@
-package app.belgarion;
+package app.belgarion.UNO;
+
+import app.belgarion.Main;
 
 import java.util.ArrayList;
 

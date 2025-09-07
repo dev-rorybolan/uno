@@ -1,6 +1,6 @@
-package app.belgarion;
+package app.belgarion.UNO;
 
-import app.belgarion.cardtypes.Cards;
+import app.belgarion.UNO.cardtypes.Cards;
 
 import java.util.Random;
 import java.util.Stack;

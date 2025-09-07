@@ -1,5 +1,5 @@
-package app.belgarion;
-import app.belgarion.cardtypes.Cards;
+package app.belgarion.UNO;
+import app.belgarion.UNO.cardtypes.Cards;
 
 import java.util.ArrayList;
 import java.util.Random;

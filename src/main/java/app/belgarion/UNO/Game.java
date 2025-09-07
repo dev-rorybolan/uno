@@ -1,6 +1,6 @@
-package app.belgarion;
+package app.belgarion.UNO;
 
-import app.belgarion.AI.AI;
+import app.belgarion.UNO.AI.AI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -18,6 +18,9 @@ public class Game {
     public boolean check(Card card) {
         return pile.isPlayable(card);
 
+    }
+    public void playCard(Card card) {
+        this.pile.PlayCard(card);
     }
     public static void printf(String s, Object... args) {
         System.out.printf(s, args);
@@ -50,40 +53,44 @@ public class Game {
         for (ArrayList<Card> card_list : botCards) {
             bots.add(new AI(card_list));
         }
-        printf("The first card is a %s %s\n", pile.pile.peek().cardColour, pile.pile.peek().cardSymbol);
+        printf("The first card is a %s %s\n", /* yeah */ pile.pile.peek().cardColour, pile.pile.peek().cardSymbol);
         ArrayList<Card> playable = new ArrayList<>();
         for (Card card : player.cards) {
             if (pile.isPlayable(card)) {
                 playable.add(card);
             }
         }
-        StringBuilder finalstr = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         for (Card card : playable) {
-            finalstr.append(card.cardColour).append(" ").append(card.cardSymbol).append("\n");
+            stringBuilder.append(card.cardColour).append(" ").append(card.cardSymbol).append("\n"); //
         }
-        printf("The cards you can play are:\n %s\n", finalstr);
+        printf("The cards you can play are:\n %s\n", stringBuilder);
         if (playable.isEmpty()) {
             println("you need to draw a card");
         }
+        loop: while (true) {
         println(!playable.isEmpty() ? "1: play a card\n2: draw a card" : "2: draw a card (no cards to play)");
         int response = scanner.nextInt();
         switch (response) {
             case 1:
                 assert !playable.isEmpty();
                 for (int i = 0; i < playable.size(); i++) {
-                    printf("%d | %s %s", i, playable.getFirst().cardColour, playable.getFirst().cardSymbol);
+                    printf("%d | %s %s\n", i, playable.get(i).cardColour, playable.get(i).cardSymbol);
                 }
                 println(null);
                 int card_choice = scanner.nextInt();
                 Card card_played = playable.remove(card_choice);
                 printf("Card %s %s played", card_played.cardColour, card_played.cardSymbol);
-                break;
+                break loop;
             case 2:
                 player1_cards.add(deck.draw());
                 printf("picked a %s %s", player1_cards.getLast().cardColour, player1_cards.getLast().cardSymbol);
-                break;
-            default:
+                break loop;
 
+            default:
+                println("you need to press 1 or 2");
+
+        }
         }
     }
 }

@@ -1,5 +1,5 @@
-package app.belgarion.cardtypes;
-import app.belgarion.Card;
+package app.belgarion.UNO.cardtypes;
+import app.belgarion.UNO.Card;
 
 public class Cards {
     public static Card[] allCards = {

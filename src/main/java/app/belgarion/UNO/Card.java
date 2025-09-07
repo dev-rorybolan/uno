@@ -1,6 +1,8 @@
-package app.belgarion;
+package app.belgarion.UNO;
 
-import app.belgarion.cardtypes.*;
+import app.belgarion.UNO.cardtypes.Colour;
+import app.belgarion.UNO.cardtypes.Symbol;
+import app.belgarion.UNO.cardtypes.*;
 
 /**
  * Card class, it just contains the colour and symbol, plus a little bit of boilerplate and a one-liner to check if a card is playable.

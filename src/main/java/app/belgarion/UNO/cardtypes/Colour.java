@@ -1,4 +1,4 @@
-package app.belgarion.cardtypes;
+package app.belgarion.UNO.cardtypes;
 
 public enum Colour {
     RED,

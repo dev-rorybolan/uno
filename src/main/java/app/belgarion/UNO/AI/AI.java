@@ -1,5 +1,5 @@
-package app.belgarion.AI;
-import app.belgarion.Card;
+package app.belgarion.UNO.AI;
+import app.belgarion.UNO.Card;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -26,12 +26,12 @@ public class AI {
         }
         ArrayList<Card> playable = new ArrayList<>();
         for (Card card : cards) {
-            if (Main.pile.isPlayable(card)) {
+            if (Main.game.check(card)) {
                 playable.add(card);
             }
         }
         int index = random.nextInt(0, playable.size());
-        Main.pile.PlayCard(playable.get(index));
+        Main.game.playCard(playable.get(index));
         cards.remove(playable.get(index));
 
 

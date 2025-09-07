@@ -1,4 +1,4 @@
-package app.belgarion;
+package app.belgarion.UNO;
 
 import java.util.Random;
 

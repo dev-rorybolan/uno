@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-group = "app.belgarion"
+group = "app.belgarion.UNO"
 version = "1.0-SNAPSHOT"
 
 repositories {
