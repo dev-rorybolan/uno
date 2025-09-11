@@ -1,4 +1,5 @@
 package app.belgarion.UNO;
+import app.belgarion.Main;
 import app.belgarion.UNO.cardtypes.Cards;
 
 import java.util.ArrayList;
@@ -6,7 +7,13 @@ import java.util.Random;
 
 
 public class Deck {
-    Random random = new Random();
+    Random random;
+     public Cards cards;
+    {
+        random = new Random();
+        cards = new Cards();
+    }
+
     public ArrayList<Card> DealOneHand() {
         ArrayList<Card> cards = new ArrayList<>();
 
@@ -19,7 +26,7 @@ public class Deck {
             }
         }
         for (int num : card_indices) {
-            cards.add(Cards.allCards[num]);
+            cards.add(Main.game.deck.cards.allCards[num]);
         }
         return cards.size() == 7? cards : new ArrayList<>();
     }
@@ -31,7 +38,7 @@ public class Deck {
         return cards;
     }
     public Card draw() {
-        return Cards.allCards[random.nextInt(0, 108)];
+        return Main.game.deck.cards.allCards[random.nextInt(0, 108)];
     }
 
 

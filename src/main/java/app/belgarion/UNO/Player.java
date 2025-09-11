@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Player {
     public ArrayList<Card> cards;
+    boolean skipped = false;
     public Player(ArrayList<Card> cards) {
         this.cards = cards;
     }

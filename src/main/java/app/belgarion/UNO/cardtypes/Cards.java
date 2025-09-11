@@ -2,7 +2,7 @@ package app.belgarion.UNO.cardtypes;
 import app.belgarion.UNO.Card;
 
 public class Cards {
-    public static Card[] allCards = {
+    public Card[] allCards = {
             // RED cards
             new Card(Colour.RED, Symbol.ZERO),
             new Card(Colour.RED, Symbol.ONE), new Card(Colour.RED, Symbol.ONE),

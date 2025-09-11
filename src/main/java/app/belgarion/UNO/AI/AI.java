@@ -14,16 +14,15 @@ import static java.lang.Thread.sleep;
  */
 public class AI {
     public ArrayList<Card> cards;
-    private final Random random = new Random();
-    public AI(ArrayList<Card> deck) {
-        cards = deck;
+    private final Random random;
+    private int id;
+
+    public AI(ArrayList<Card> deck, int id) {
+        this.cards = deck; random = new Random();
+        this.id = id;
     }
     public void Run() {
-        try {
-            sleep(1000);
-        } catch (InterruptedException e) {
-            System.out.println("u fucked up");
-        }
+
         ArrayList<Card> playable = new ArrayList<>();
         for (Card card : cards) {
             if (Main.game.check(card)) {
@@ -33,6 +32,7 @@ public class AI {
         int index = random.nextInt(0, playable.size());
         Main.game.playCard(playable.get(index));
         cards.remove(playable.get(index));
+        System.out.printf("\nAI %d played %s %s\n", this.id, playable.get(index).cardColour, playable.get(index).cardSymbol);
 
 
 

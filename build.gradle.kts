@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    application
 }
 
 group = "app.belgarion.UNO"
@@ -17,4 +18,12 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+application {
+    mainClass.set("app.belgarion.Main") // replace with your full package+class name
+}
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
+    jvmArgs("-Djansi.passthrough=true")
 }
